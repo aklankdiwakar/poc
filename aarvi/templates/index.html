@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baby's Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <header class="text-center py-10 bg-pink-200">
+        <h1 class="text-4xl font-bold">Welcome to [Your Daughter's Name] Portfolio</h1>
+        <p class="text-xl mt-2">A collection of cherished moments</p>
+    </header>
+
+    <div id="gallery" class="flex flex-col items-center gap-4 p-6">
+        <!-- Images will be loaded here dynamically -->
+    </div>
+
+    <div id="loader" class="text-center text-lg py-6">Loading...</div>
+
+    <!-- Modal Structure -->
+    <div id="imageModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center hidden">
+        <span id="closeModal" class="absolute top-4 right-4 text-white text-3xl cursor-pointer">&times;</span>
+        <img id="modalImage" src="" class="max-w-full max-h-full object-contain rounded-lg">
+    </div>
+
+    <footer class="text-center py-4 bg-gray-800 text-gray-100">
+        <p>© [Year] by [Your Name]. All rights reserved.</p>
+        <p>Contact: [Your Email]</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
