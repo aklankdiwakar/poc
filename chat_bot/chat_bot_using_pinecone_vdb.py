@@ -33,8 +33,8 @@ from transformers import T5ForConditionalGeneration, T5Tokenizer
 # lm_model = T5ForConditionalGeneration.from_pretrained('t5-large')
 # device = 'cuda' if torch.cuda.is_available() else 'cpu'
 # lm_model.to(device)
-# lm_tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-7b-chat-hf", token='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')
-# lm_model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-2-7b-chat-hf", token='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')
+# lm_tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-7b-chat-hf", token='***')
+# lm_model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-2-7b-chat-hf", token='***')
 summarizer = pipeline('text-generation', model='gpt2')
 
 pdf_path = '/Users/akdiwaka/Downloads/PA_Checklist_Automation_guide.pdf'
