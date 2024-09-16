@@ -17,7 +17,7 @@ OCI_CRED = {
 
 connection = oracledb.connect(
      user="admin",
-     password='Dev0ps@12345',
+     password='***',
      dsn=cs)
 
 cursor = connection.cursor()
