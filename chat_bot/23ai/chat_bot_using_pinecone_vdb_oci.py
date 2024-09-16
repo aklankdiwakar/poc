@@ -3,8 +3,8 @@ import oracledb
 import streamlit as st
 
 cs = """(description = (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)
-(host=adb.us-ashburn-1.oraclecloud.com))(connect_data=
-(service_name=zkzqokm1dwmlnxn_mcsrag_low.adb.oraclecloud.com))
+(host=***))(connect_data=
+(service_name=***))
 (security=(ssl_server_dn_match=yes)))"""
 
 OCI_CRED = {
