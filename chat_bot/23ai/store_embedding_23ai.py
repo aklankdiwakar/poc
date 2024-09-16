@@ -6,7 +6,7 @@ from confluence import get_conf_data
 # model = AutoModel.from_pretrained('sentence-transformers/paraphrase-MiniLM-L6-v2')
 
 
-cs="""(description = (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.us-ashburn-1.oraclecloud.com))(connect_data=(service_name=zkzqokm1dwmlnxn_mcsrag_low.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))"""
+cs="""(description = (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=***))(connect_data=(service_name=***))(security=(ssl_server_dn_match=yes)))"""
 OCI_CRED = {
     "provider": "ocigenai",
     "credential_name": "OCI_CRED",
@@ -16,7 +16,7 @@ OCI_CRED = {
 
 connection = oracledb.connect(
      user="admin",
-     password='Dev0ps@12345',
+     password='***',
      dsn=cs)
 
 cursor = connection.cursor()
