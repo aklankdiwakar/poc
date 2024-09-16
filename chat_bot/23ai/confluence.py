@@ -1,13 +1,17 @@
 from atlassian import Confluence
+import re
 from bs4 import BeautifulSoup
 confluence = Confluence(
     url='https://confluence.oraclecorp.com/confluence',
-    token='****'
+    token='***'
 )
 
 page_id = '5203270386'
+# page_id = '3686238315'
 page_content = confluence.get_page_by_id(page_id, expand='body.storage')['body']['storage']['value']
 
+# print(page_content)
+# breakpoint()
 soup = BeautifulSoup(page_content, 'lxml')
 
 # tables = soup.find_all('table')
@@ -39,10 +43,11 @@ def get_conf_data():
         text = para.get_text().strip()
         if text:  # Ensure non-empty text
             structured_data.append({
-                'page': row_no,
-                'text': text
+                'row_no': row_no,
+                'title': text,
+                'content': text
             })
-            row_no+=1
+            row_no += 1
 
     # Extract tables
     tables = soup.find_all('table')
@@ -52,15 +57,27 @@ def get_conf_data():
         rows = table.find_all('tr')
         for row in rows:
             cols = row.find_all(['td', 'th'])
+            title = cols[1].text.strip() if len(cols) > 1 else cols[0].text.strip()
+            # title = ' | '.join(ele1.text.strip() for ele1 in cols[0:1])
             row_text = ' | '.join(ele.text.strip() for ele in cols)
             # cols = [re.sub(r'\s+', ' ', ele.text).strip() for ele in cols]
             # cols = [ele.text.strip() for ele in cols]
             # structured_data.append(cols)
             structured_data.append({
-                'page': row_no,
-                'text': row_text
+                'row_no': row_no,
+                'title': title,
+                'content': row_text
             })
             row_no+=1
+            # print(row_text)
+        # data.append(table_data)
+    print(structured_data)
+
+    # print(len(structured_data))
     return structured_data
 
 get_conf_data()
+
+for each in get_conf_data():
+    print('#'*15)
+    print(each)
